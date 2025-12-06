@@ -31,7 +31,12 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Clarity**: Code is clear and concise.
+- [ ] **Testability**: All code is testable.
+- [ ] **Documentation**: All new features are documented.
+- [ ] **Modularity**: Components are modular and reusable.
+- [ ] **Simplicity**: The solution adheres to YAGNI principles.
+- [ ] **Verifiability**: Content is clear and verifiable.
 
 ## Project Structure
 
