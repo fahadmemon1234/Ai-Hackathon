@@ -208,3 +208,15 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Docusaurus (for 001-book-ui-upgrade)
+- React (for 001-book-ui-upgrade)
+- JavaScript/TypeScript (for 001-book-ui-upgrade)
+- CSS (for 001-book-ui-upgrade)
+- Markdown/MDX (for 001-book-ui-upgrade)
+- Git (for version control)
+
+
+## Recent Changes
+- 001-physical-ai-book: Added N/A (or Git for version control)
