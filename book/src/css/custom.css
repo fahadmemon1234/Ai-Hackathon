@@ -1,313 +1,331 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css"; /* Added medium weight */
+@import "@fontsource/inter/600.css"; /* Added semibold weight */
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
 
-/* You can override the default Infima variables here. */
+/* -----------------------------------
+   GLOBAL VARIABLES & THEME SETUP
+-----------------------------------*/
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --doc-color-accent-primary: #1890ff; /* A common blue for primary accents */
-  --doc-color-accent-secondary: #eb2f96; /* A common pink for secondary accents */
-  --doc-color-highlight: #fffb8f; /* A light yellow for text highlights */
-  --doc-color-success: #52c41a; /* Green for success/tip boxes */
-  --doc-color-warning: #faad14; /* Orange for warning boxes */
-  --doc-color-danger: #f5222d; /* Red for danger/error boxes */
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Core Palette - Deep, Rich, Electric */
+  --ifm-color-primary: #7c5cff;
+  --ifm-color-primary-dark: #5e3eff;
+  --ifm-color-primary-light: #9d85ff;
+  
+  --bg-deep: #050608;
+  --bg-surface: #0e111a;
+  
+  --ifm-background-color: var(--bg-deep);
+  --ifm-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --ifm-font-color-base: #e0e6ed; /* Slightly brighter for contrast */
+
+  /* The "Premium" Glass Recipe */
+  --ai-glass: rgba(20, 25, 40, 0.6);
+  --ai-glass-border: rgba(255, 255, 255, 0.08);
+  --ai-glass-highlight: rgba(255, 255, 255, 0.03);
+  
+  /* Lighting & Glows */
+  --ai-glow-primary: 0 0 40px rgba(124, 92, 255, 0.15);
+  --ai-glow-text: 0 0 20px rgba(124, 92, 255, 0.4);
+  --ai-shadow-card: 0 20px 40px -10px rgba(0,0,0,0.5);
+  
+  /* Gradients */
+  --gradient-text: linear-gradient(135deg, #fff 0%, #b4baff 100%);
+  --gradient-brand: linear-gradient(135deg, #7c5cff 0%, #2dd4bf 100%);
+  --gradient-surface: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
-
-/* Basic Reset/Normalize for better consistency */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
+/* -----------------------------------
+   BASE STYLES & TEXTURE
+-----------------------------------*/
 html, body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 16px; /* Base font size */
-  line-height: 1.6; /* Base line height for readability */
-  color: var(--ifm-font-color-base); /* Use Docusaurus base font color variable */
+  background-color: var(--bg-deep) !important;
+  color: var(--ifm-font-color-base) !important;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Premium Noise Texture Overlay - The "Cinematic" effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+/* Background Ambient Lighting */
+body::after {
+  content: "";
+  position: fixed;
+  top: -20%; left: -10%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.07) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* -----------------------------------
+   TYPOGRAPHY
+-----------------------------------*/
 h1, h2, h3, h4, h5, h6 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em; /* Tight tracking = Premium */
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(124, 92, 255, 0.2);
 }
 
 p {
-  margin-bottom: 1em; /* Add space below paragraphs */
-}
-
-/* Heading styles for H1 and H2 */
-h1 {
-  font-size: 2.8em;
-  font-weight: 700;
-  color: var(--doc-color-accent-primary);
-  margin-bottom: 0.8em;
-}
-
-h2 {
-  font-size: 2.2em;
-  font-weight: 600;
-  margin-bottom: 0.7em;
-}
-
-/* Heading styles for H3 and H4 */
-h3 {
-  font-size: 1.8em;
-  font-weight: 600;
-  margin-bottom: 0.6em;
-}
-
-h4 {
-  font-size: 1.4em;
-  font-weight: 500;
-  margin-bottom: 0.5em;
-}
-
-/* Heading styles for H5 and H6 */
-h5 {
-  font-size: 1.2em;
-  font-weight: 500;
-  margin-bottom: 0.4em;
-}
-
-h6 {
-  font-size: 1em;
+  color: #a1a9b8;
   font-weight: 400;
-  margin-bottom: 0.3em;
-  text-transform: uppercase;
-  color: var(--ifm-color-emphasis-700); /* A slightly muted color for smaller headings */
+  margin-bottom: 1.5rem;
 }
 
-/* Card-like styling for content blocks */
-.markdown > div, .main-wrapper article { /* Target Docusaurus markdown content and article wrapper */
-  background-color: var(--ifm-background-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  padding: 1.5em;
-  margin-bottom: 2em;
-}
-
-[data-theme='dark'] .markdown > div, [data-theme='dark'] .main-wrapper article {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Accent colors for links and other elements */
 a {
-  color: var(--doc-color-accent-primary);
+  color: var(--ifm-color-primary-light);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
 }
 
 a:hover {
-  color: var(--doc-color-accent-primary-dark); /* Assuming a dark variant exists or can be derived */
-  text-decoration: underline;
+  color: #fff;
+  border-bottom-color: var(--ifm-color-primary);
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .markdown > div, .main-wrapper article {
-    padding: 1em; /* Reduce padding on smaller screens */
-    margin-bottom: 1.5em; /* Adjust margin */
-  }
-
-  h1 {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.8em;
-  }
-}
-
-/* Specific styling for module cards */
-.module-card {
-  background-color: var(--ifm-background-color);
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* Slightly more prominent shadow for module cards */
-  padding: 2em;
-  margin-bottom: 2.5em;
-  border: 1px solid var(--ifm-color-emphasis-200); /* Light border */
-}
-
-[data-theme='dark'] .module-card {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border-color: var(--ifm-color-emphasis-700);
-}
-
-/* Callout box styling */
-.callout {
-  padding: 1.2em 1.5em;
-  margin-bottom: 1.5em;
-  border-left: 5px solid;
-  border-radius: 4px;
-  background-color: var(--ifm-background-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
-
-.callout p:last-child { /* Remove margin from last paragraph in callout */
-  margin-bottom: 0;
-}
-
-.callout-tip {
-  border-color: var(--doc-color-success);
-  background-color: rgba(var(--doc-color-success-rgb), 0.05); /* Lighter background */
-}
-
-.callout-warning {
-  border-color: var(--doc-color-warning);
-  background-color: rgba(var(--doc-color-warning-rgb), 0.05);
-}
-
-.callout-note {
-  border-color: var(--doc-color-accent-primary);
-  background-color: rgba(var(--doc-color-accent-primary-rgb), 0.05);
-}
-
-/* Define RGB values for rgba usage */
-:root {
-  --doc-color-success-rgb: 82, 196, 26;
-  --doc-color-warning-rgb: 250, 173, 20;
-  --doc-color-accent-primary-rgb: 24, 144, 255;
-}
-
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5em;
-  border: 1px solid var(--ifm-color-emphasis-300);
-}
-
-th, td {
-  padding: 0.8em 1em;
-  text-align: left;
-  border: 1px solid var(--ifm-color-emphasis-300);
-}
-
-th {
-  background-color: var(--ifm-background-color-secondary); /* A slightly different background for headers */
-  font-weight: 600;
-  color: var(--ifm-font-color-primary); /* Use a more prominent color for header text */
-}
-
-/* Alternating row colors for tables */
-tbody tr:nth-child(even) {
-  background-color: var(--ifm-background-color-secondary);
-}
-
-/* Highlight key terms */
-.highlight-term {
-  font-weight: bold;
-  color: var(--doc-color-accent-primary);
-  background-color: var(--doc-color-highlight); /* Use the highlight color for background */
-  padding: 0.1em 0.4em;
-  border-radius: 3px;
-}
-
-/* Section dividers */
-hr {
-  border: none;
-  border-top: 1px solid var(--ifm-color-emphasis-300);
-  margin: 3em auto;
-  width: 50%; /* Make it shorter to appear more aesthetic */
-  text-align: center;
-  overflow: visible;
-}
-
-hr::after {
-  content: "§"; /* Optional: add a section symbol */
-  display: inline-block;
+/* -----------------------------------
+   HERO SECTION
+-----------------------------------*/
+.heroBanner {
+  padding: 5rem 1rem 6rem;
   position: relative;
-  top: -1em;
-  padding: 0 0.5em;
-  background: var(--ifm-background-color);
-  color: var(--ifm-color-emphasis-500);
-  font-size: 1.2em;
+  overflow: hidden;
+  background: transparent; /* Rely on body bg */
 }
 
-[data-theme='dark'] hr::after {
-  background: var(--ifm-background-color);
+/* Spotlight behind hero */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; height: 100%;
+  background: radial-gradient(circle at center, rgba(124, 92, 255, 0.08), transparent 60%);
+  z-index: -1;
 }
 
-/* Code block styling enhancements */
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background-color: var(--ifm-code-background);
-  border-radius: var(--ifm-global-radius);
-  padding: 1.2em;
-  font-size: 0.95em;
-  line-height: 1.5;
-  border: 1px solid var(--ifm-color-emphasis-200);
+.hero__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Specific token styling for better readability in code blocks */
-.token.comment {
-  color: var(--ifm-color-emphasis-500); /* Muted for comments */
-  font-style: italic;
+.hero__text { max-width: 600px; }
+
+.hero__title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #FFFFFF 0%, #9ca3af 100%); /* Silver gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.token.keyword {
-  color: var(--doc-color-accent-primary); /* Use primary accent for keywords */
+.hero__title span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.token.string {
-  color: var(--ifm-color-success); /* Docusaurus success color for strings */
+.hero__subtitle {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
 
-.token.number {
-  color: var(--doc-color-accent-secondary); /* Secondary accent for numbers */
+.hero__image img {
+  border-radius: 20px;
+  /* Double shadow for depth */
+  box-shadow: 
+    0 0 0 1px rgba(255,255,255,0.1), /* Rim light */
+    0 20px 60px -10px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(124, 92, 255, 0.2); /* Glow */
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* List styling */
-ul, ol {
-  margin-bottom: 1.5em;
-  padding-left: 1.5em;
+/* -----------------------------------
+   UI COMPONENTS (Cards & Containers)
+-----------------------------------*/
+/* The Glass Card Effect */
+.markdown, .card, article, pre {
+  background: var(--ai-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--ai-glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  /* Inner light for thickness */
+  box-shadow: 
+    inset 0 1px 0 0 var(--ai-glass-highlight),
+    var(--ai-shadow-card);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
 }
 
-ul li {
-  list-style-type: disc;
-  margin-bottom: 0.5em;
+.card:hover, article:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(124, 92, 255, 0.3);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255,255,255,0.1),
+    0 30px 60px -12px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(124, 92, 255, 0.1);
 }
 
-ol li {
-  margin-bottom: 0.5em;
+/* -----------------------------------
+   BUTTONS - High Polish
+-----------------------------------*/
+.button {
+  position: relative;
+  background: var(--bg-surface);
+  color: #fff !important;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 
-ul ul, ol ol, ul ol, ol ul {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  line-height: 1.4; /* Slightly reduced line-height for nested lists */
-  /* padding-left is inherited by default or can be explicitly set */
+/* Gradient Background for Button */
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--gradient-brand);
+  opacity: 0.8;
+  z-index: -1;
+  transition: opacity 0.3s ease;
 }
 
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(124, 92, 255, 0.5);
+  border-color: rgba(255,255,255,0.3);
+}
 
+.button:hover::before {
+  opacity: 1;
+}
 
+/* -----------------------------------
+   NAVBAR & FOOTER
+-----------------------------------*/
+.navbar {
+  background: rgba(5, 6, 8, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 
+.footer {
+  background: #020203;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 5rem 2rem;
+  position: relative;
+}
 
+/* Footer Top Glow */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 50%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ifm-color-primary), transparent);
+  opacity: 0.5;
+}
 
+.footer-socials a {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #94a3b8;
+}
 
+.footer-socials a:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 15px var(--ifm-color-primary-dark);
+}
 
+/* -----------------------------------
+   CODE BLOCKS
+-----------------------------------*/
+pre {
+  background: #080a0f !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+}
 
+code {
+  font-family: "Fira Code", monospace;
+}
 
+:not(pre) > code {
+  background: rgba(124, 92, 255, 0.1) !important;
+  border: 1px solid rgba(124, 92, 255, 0.2);
+  color: #b4baff;
+}
+
+/* -----------------------------------
+   SCROLLBAR
+-----------------------------------*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #2d3748;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5568;
+}
+
+/* -----------------------------------
+   RESPONSIVE
+-----------------------------------*/
+@media (max-width: 996px) {
+  .hero__content { flex-direction: column; text-align: center; }
+  .hero__text { margin: 0 auto; }
+  .hero__image { margin-top: 3rem; transform: none !important; }
+  .buttons { justify-content: center; }
+}
+
+a.button.button--secondary.button--lg.glass-button{
+  margin-left: 20px;
+}

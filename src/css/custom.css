@@ -1,0 +1,109 @@
+/*
+ * Full AI-Agency Theme for Docusaurus
+ *
+ * This CSS file contains a complete and comprehensive set of styles for a futuristic,
+ * AI-themed Docusaurus project. It's designed to be a "full change" that transforms
+ * the entire UI into a premium, immersive experience.
+ */
+
+/* --- CSS Variables --- */
+:root {
+  --ai-primary-color: #00d4ff;
+  --ai-secondary-color: #7c5cff;
+  --ai-background-color: #0b1020;
+  --ai-text-color: #e0e0e0;
+  --ai-text-muted-color: #a0a0a0;
+  --ai-panel-color: rgba(11, 16, 32, 0.8);
+  --ai-panel-border-color: rgba(0, 212, 255, 0.2);
+  --ai-glow-color: rgba(0, 212, 255, 0.3);
+  --ai-font-family: "Inter", sans-serif;
+}
+
+/* --- Global Styles --- */
+body {
+  background-color: var(--ai-background-color);
+  color: var(--ai-text-color);
+  font-family: var(--ai-font-family);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ai-font-family);
+  color: var(--ai-text-color);
+  font-weight: 800;
+}
+
+/* --- Animated Background --- */
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #0b1020, #7c5cff, #00d4ff, #0b1020);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background: var(--ai-panel-color);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--ai-panel-border-color);
+}
+
+/* --- Hero Section --- */
+.ai-hero {
+  padding: 8rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-hero .ai-hero__title {
+  font-size: 5rem;
+}
+
+/* --- Glassmorphism Card --- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Code Blocks --- */
+.markdown pre {
+  background: #1a1a1a;
+  border: 1px solid var(--ai-panel-border-color);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- Footer --- */
+.footer {
+  background: var(--ai-background-color);
+  border-top: 1px solid var(--ai-panel-border-color);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ai-primary-color), transparent);
+}

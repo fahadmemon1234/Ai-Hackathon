@@ -31,6 +31,10 @@ const config: Config = {
     locales: ["en"],
   },
 
+  stylesheets: [
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@300;700;800&display=swap",
+  ],
+
   presets: [
     [
       "classic",
@@ -69,7 +73,7 @@ const config: Config = {
           label: "Book",
         },
         {
-          href: "https://github.com/gemini-org/hackathon-book",
+          href: "https://github.com/fahadmemon1234/Ai-Hackathon",
           label: "GitHub",
           position: "right",
         },
@@ -105,7 +109,24 @@ const config: Config = {
           items: [
             {
               label: "GitHub",
-              href: "https://github.com/gemini-org/hackathon-book",
+              href: "https://github.com/fahadmemon1234/Ai-Hackathon",
+            },
+          ],
+        },
+        {
+          title: "Socials",
+          items: [
+            {
+              label: "Twitter",
+              href: "https://twitter.com/docusaurus",
+            },
+            {
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/company/docusaurus",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/fahadmemon1234/Ai-Hackathon",
             },
           ],
         },
