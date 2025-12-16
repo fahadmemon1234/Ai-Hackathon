@@ -1,6 +1,6 @@
 # Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator. It now includes an integrated RAG Chatbot.
 
 ## Installation
 
@@ -14,7 +14,11 @@ yarn
 yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server. The integrated chatbot will also be available.
+
+## Integrated Chatbot
+
+This Docusaurus site integrates a Retrieval-Augmented Generation (RAG) Chatbot. For details on how the chatbot works and its backend setup, please refer to the main [Quickstart Guide](../../specs/1-rag-chatbot-book/quickstart.md).
 
 ## Build
 

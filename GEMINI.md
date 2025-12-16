@@ -218,5 +218,14 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 - Git (for version control)
 
 
+## Active Technologies
+- Python 3.11+ (for 1-rag-chatbot-book)
+- FastAPI (for 1-rag-chatbot-book)
+- OpenAI Agent SDK (for 1-rag-chatbot-book)
+- Cohere (for 1-rag-chatbot-book)
+- Qdrant-client/Qdrant Cloud (for 1-rag-chatbot-book)
+- Neon-Python-Driver/Neon Serverless Postgres (for 1-rag-chatbot-book)
+- Pytest (for 1-rag-chatbot-book)
+
 ## Recent Changes
 - 001-physical-ai-book: Added N/A (or Git for version control)

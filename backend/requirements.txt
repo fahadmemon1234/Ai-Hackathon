@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-dotenv
+qdrant-client
+cohere
+openai # The plan mentioned OpenAI Agent SDK, which generally implies the openai library for Python.
+asyncpg
+pytest
+python-gemini-sdk

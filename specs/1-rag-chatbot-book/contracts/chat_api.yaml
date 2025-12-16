@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: Chatbot API
+  version: 1.0.0
+  description: API for interacting with the Integrated RAG Chatbot.
+
+paths:
+  /api/chat:
+    post:
+      summary: Submit a user question to the chatbot
+      operationId: postChatMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                session_id:
+                  type: string
+                  format: uuid
+                  nullable: true
+                  description: Optional UUID for tracking chat sessions. If not provided, a new session is created.
+                message:
+                  type: string
+                  description: The user's question to the chatbot.
+                context_mode:
+                  type: string
+                  enum: [full_book, selected_text]
+                  description: Defines the scope of the chatbot's context for answering the question.
+                selected_text:
+                  type: string
+                  nullable: true
+                  description: Optional. The text snippet selected by the user if context_mode is 'selected_text'.
+              required:
+                - message
+                - context_mode
+      responses:
+        '200':
+          description: Successful response from the chatbot.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  session_id:
+                    type: string
+                    format: uuid
+                    description: The UUID of the current chat session.
+                  response:
+                    type: string
+                    description: The chatbot's generated answer.
+                required:
+                  - session_id
+                  - response
+        '400':
+          description: Bad request (e.g., missing required fields, invalid context_mode).
+        '500':
+          description: Internal server error.

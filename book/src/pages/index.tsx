@@ -5,6 +5,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import clsx from 'clsx'; // Standard Docusaurus utility
+import ChatbotWidget from '@site/src/components/ChatbotWidget'; // Added import
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -55,6 +56,7 @@ export default function Home() {
       <main>
         <HomepageFeatures />
       </main>
+      <ChatbotWidget /> {/* Added ChatbotWidget here */}
     </Layout>
   );
 }
