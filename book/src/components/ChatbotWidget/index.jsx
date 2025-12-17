@@ -46,7 +46,7 @@ function ChatbotWidget() {
         ...(textSelection && { selected_text: textSelection }),
       };
 
-      const response = await fetch('http://localhost:8000/api/chat', { // Assuming backend runs on 8000
+      const response = await fetch('https://ai-hackathon-75r0.onrender.com/api/chat', { // Assuming backend runs on 8000
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
