@@ -15,6 +15,7 @@ python-dotenv
 qdrant-client
 cohere
 openai
+openai-agents
 asyncpg
 pytest
 google-generativeai
